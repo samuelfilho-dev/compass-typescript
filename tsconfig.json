@@ -113,6 +113,7 @@
   },
   "exclude": [
     "scripts/basic", // Exclui
-    "scripts/js-features"
+    "scripts/js-features",
+    "scripts/classes-and-interfaces"
   ]
 }

@@ -27,10 +27,12 @@ class Department {
   }
 }
 
+// 'extends' - paravra resevada para criar heranças entre classes
 class ITDepartment extends Department {
   public admins: string[];
 
   constructor(id: string, admins: string[]) {
+    // super() - Chama o construtor da classe mãe
     super(id, "IT");
     this.admins = admins;
   }
@@ -39,6 +41,12 @@ class ITDepartment extends Department {
 class AccountingDepartment extends Department {
   private lastReport: string;
 
+  constructor(id: string, private reports: string[]) {
+    super(id, "Accounting");
+    this.reports = reports;
+  }
+
+  // Getter e Setter do 'lastReport'
   get mostRecentReport() {
     if (this.lastReport) {
       return this.lastReport;
@@ -51,29 +59,19 @@ class AccountingDepartment extends Department {
     this.addReports(value);
   }
 
-  constructor(id: string, private reports: string[]) {
-    super(id, "Accounting");
-    this.reports = reports;
-    this.lastReport = reports[0];
+  addReports(text: string) {
+    this.reports.push(text);
+  }
+
+  printReports() {
+    console.log(this.reports);
   }
 
   addEmployee(name: string) {
     if (name === "Max") return;
     this.employess.push(name);
   }
-
-  addReports(text: string) {
-    this.reports.push(text);
-    this.lastReport = text;
-  }
-
-  printReports() {
-    console.log(this.reports);
-  }
 }
-
-const employee1 = Department.createEmplyoee("Max");
-console.log(employee1, Department.fiscalYear);
 
 const it = new ITDepartment("D1", ["Max"]);
 
