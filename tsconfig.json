@@ -112,8 +112,6 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
   "exclude": [
-    "scripts/basic", // Exclui
-    "scripts/js-features",
-    "scripts/classes-and-interfaces"
+    "scripts/*" // Exclui
   ]
 }
